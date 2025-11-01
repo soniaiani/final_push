@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { validateLogin } from "../services/authServices";
+import logo from 'url:../images/Logo-up.png';
 
 interface LoginProps {
   onLogin: () => void;
@@ -41,11 +42,12 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
         <div className="text-center mb-8">
-          {/* LOGO REPLACEMENT: Using a placeholder logo */}
-          <div className="w-24 h-24 mx-auto mb-4 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-4xl">E</span>
-          </div>
-          {/* End LOGO REPLACEMENT */}
+          {/* Logo */}
+          <img
+            src={logo}
+            alt="Estelar Logo"
+            className="h-20 w-auto mx-auto mb-4"
+          />
           <p className="text-gray-600">
             Welcome to estelar! Log in to get started.
           </p>

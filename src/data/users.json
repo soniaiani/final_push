@@ -4,25 +4,45 @@
       "username": "admin",
       "passwordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
       "name": "Administrator",
-      "email": "admin@estelar.ro"
+      "email": "admin@estelar.ro",
+      "jobTitle": "Administrator Sistem",
+      "department": "IT",
+      "location": "București",
+      "manager": "",
+      "description": "Administrator al platformei Estelar."
     },
     {
       "username": "delia.farcas",
       "passwordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
       "name": "Delia Farcas",
-      "email": "delia.farcas@estelar.ro"
+      "email": "delia.farcas@estelar.ro",
+      "jobTitle": "Developer",
+      "department": "IT",
+      "location": "București",
+      "manager": "Andrei Guinea",
+      "description": "Dezvoltator pasionat de tehnologie și inovație."
     },
     {
       "username": "andrei.popa",
       "passwordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
       "name": "Andrei Popa",
-      "email": "andrei.popa@estelar.ro"
+      "email": "andrei.popa@estelar.ro",
+      "jobTitle": "Project Manager",
+      "department": "Management",
+      "location": "București",
+      "manager": "Andrei Guinea",
+      "description": "Manager de proiect cu experiență în gestionarea echipelor tehnice."
     },
     {
       "username": "test",
       "passwordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
       "name": "Test User",
-      "email": "test@estelar.ro"
+      "email": "test@estelar.ro",
+      "jobTitle": "Tester",
+      "department": "QA",
+      "location": "București",
+      "manager": "Delia Farcas",
+      "description": "Utilizator de test pentru platforma Estelar."
     }
   ]
 }

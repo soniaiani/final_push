@@ -6,12 +6,15 @@ import Header from './components/Header';
 import MainFeed from './components/MainFeed';
 import SettingsDrawer from './components/SettingsDrawer';
 // NOU: Importăm componenta Profile pentru vizualizarea îmbunătățită
-import Profile from './components/Profile'; 
+import Profile from './components/Profile';
+import UsersList from './components/UsersList';
+import { User } from './services/authServices';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [currentView, setCurrentView] = useState<'feed' | 'profile' | 'settings' | 'about'>('feed');
+  const [currentView, setCurrentView] = useState<'feed' | 'profile' | 'settings' | 'about' | 'users' | 'userProfile'>('feed');
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
   const handleLogin = () => {
     // Aici ar trebui să se întâmple logică mai complexă de salvare a token-ului, nu doar setarea la true
@@ -29,9 +32,21 @@ function App() {
     setDrawerOpen(!drawerOpen);
   };
 
-  const handleMenuItemClick = (view: 'feed' | 'profile' | 'settings' | 'about') => {
+  const handleMenuItemClick = (view: 'feed' | 'profile' | 'settings' | 'about' | 'users') => {
     setCurrentView(view);
     setDrawerOpen(false);
+    setSelectedUser(null); // Resetează utilizatorul selectat când schimbi view-ul
+  };
+
+  const handleUserSelect = (user: User) => {
+    setSelectedUser(user);
+    setCurrentView('userProfile');
+    setDrawerOpen(false);
+  };
+
+  const handleBackToUsers = () => {
+    setSelectedUser(null);
+    setCurrentView('users');
   };
 
   if (!isAuthenticated) {
@@ -46,6 +61,39 @@ function App() {
         
         {/* SECȚIUNEA MODIFICATĂ: Folosim acum componenta externă Profile */}
         {currentView === 'profile' && <Profile />}
+        
+        {/* Lista de utilizatori */}
+        {currentView === 'users' && (
+          <UsersList onUserSelect={handleUserSelect} />
+        )}
+        
+        {/* Profilul unui utilizator selectat */}
+        {currentView === 'userProfile' && selectedUser && (
+          <div>
+            <div className="container mx-auto px-4 py-4 max-w-5xl">
+              <button
+                onClick={handleBackToUsers}
+                className="mb-4 flex items-center text-indigo-600 hover:text-indigo-800 transition-colors"
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                  />
+                </svg>
+                Înapoi la lista de prieteni
+              </button>
+            </div>
+            <Profile viewedUser={selectedUser} />
+          </div>
+        )}
         
         {currentView === 'settings' && (
           <div className="container mx-auto px-4 py-8">

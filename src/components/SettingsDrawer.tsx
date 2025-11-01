@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 interface SettingsDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  onMenuItemClick: (view: 'feed' | 'profile' | 'settings' | 'about') => void;
+  onMenuItemClick: (view: 'feed' | 'profile' | 'settings' | 'about' | 'users') => void;
 }
 
 const SettingsDrawer: React.FC<SettingsDrawerProps> = ({
@@ -26,6 +26,7 @@ const SettingsDrawer: React.FC<SettingsDrawerProps> = ({
   const menuItems = [
     { id: 'feed', label: 'Feed', icon: '📰' },
     { id: 'profile', label: 'Profile', icon: '👤' },
+    { id: 'users', label: 'Prieteni', icon: '👥' },
     { id: 'settings', label: 'Settings', icon: '⚙️' },
     { id: 'about', label: 'About', icon: 'ℹ️' },
   ] as const;

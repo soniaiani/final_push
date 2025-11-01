@@ -9,6 +9,8 @@ export interface User {
   jobTitle: string;
   department: string;
   location: string;
+  manager?: string;
+  description?: string;
 }
 
 // Interfață pentru stocarea parolelor actualizate
